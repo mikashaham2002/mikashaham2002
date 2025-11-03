@@ -5,7 +5,7 @@
 ## Hi there 👋
 I am currently completing my MSc in AI at the Vrije Universiteit Amsterdam. 
 
-<h2 align="center">👨🏻‍💻 About Me</h2>
+<h2 align="center">👩🏻‍💻 About Me</h2>
 
 <p>
 💡 I’m an MSc Artificial Intelligence student interested in diverse AI applications — from <b>LLMs</b> to <b>robotics</b>.<br>
