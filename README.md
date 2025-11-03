@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="banner.png" alt="Mika Shaham Banner" width="300"/>
+  <img src="Banner.png" alt="Mika Shaham Banner" width="300"/>
 </p>
 
 ## Hi there 👋
