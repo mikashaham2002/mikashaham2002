@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Mika's Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="topnav">
+        <a href="#home">Home</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience" class="split">Experience</a>
+    </div>
+
+    <div id="home" class = "hero">
+        <div class = "intro-text">
+            <h1 style="color:white;">Welcome to My Portfolio</h1>
+            <p style="color:white;">Mika Shaham</p>
+        </div>
+        <div class="photo-container">
+            <img src="{{ url_for('static', filename='images/mika.jpg') }}" alt="Mika Shaham" class="profile-photo" />
+            <div class="arrow-label">
+                <span class = "arrow-text">That's me!</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="education" class="section">
+  <h2>Education</h2>
+  <p>
+    Bachelor of Science in Computational Social Science<br>
+    University of Amsterdam<br>
+    2022 – 2025
+  </p>
+  <p>
+    Masters of Science in Artificial Intelligence<br>
+    Vrije Universiteit Amsterdam<br>
+    2025 – Present
+  </p>
+</div>
+
+<div id="projects" class="section">
+  <h2>Projects</h2>
+  <div class="project-item">
+    <div class="project-text">
+      <h3>1. RIPE NCC Data Driven Platform </h3>
+      <p>This was my Bachelor's Capstone project.<br>
+        I scraped, cleaned, and analyzed thousands of data points.<br>
+        Used ML techniques to find and visualize insights. <br>
+        I was looking at the influence of internet infrastructure <br> 
+        on the economic health of diverse countries.
+      </p>
+    </div>
+
+  <h3>2. COVID Forecasting</h3>
+    <p>Here, I scraped demographic and health data from the US.<br>
+    Used random forest and time-series analysis to experiment <br> with forecasting.</p>
+
+  <h3>3. Robot Evolution</h3>
+  <p>This is a Masters project where I implemented an
+    evolutionary <br> algorithm. The aim was to evolve a randomly generated robot <br>
+  to perform forward locomotion through different types of terrains. </p>
+
+  <h3>4. Sododku Solver</h3>
+  <p>With the use of Python and propositional logic I
+    built <br> an SAT Sodoku solver.I built various functions to meet each<br>constraint.
+    Made sure that it is scalable so that it can be applied <br> to any size of problem.</p>
+</div>
+
+
+<div id="experience" class="section">
+  <h2>Experience</h2>
+  <h3>Made Blue Data Analyst Intern</h3>
+</div>
+
+</body>
+</html>
