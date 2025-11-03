@@ -17,6 +17,10 @@ I am currently completing my MSc in AI at the Vrije Universiteit Amsterdam.
 📄 More about my experience on <a href="https://www.linkedin.com/in/mika-shaham">LinkedIn</a>.
 </p>
 
+## 🚀 Projects
+
+📁 [View My Projects Folder](https://github.com/mikashaham2002/mikashaham2002/tree/main/Projects)
+
 ### 🧠 Tech Stack
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
@@ -30,3 +34,4 @@ I am currently completing my MSc in AI at the Vrije Universiteit Amsterdam.
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
 ![Project Management](https://img.shields.io/badge/Project%20Management-7952B3?style=for-the-badge&logo=notion&logoColor=white)
 ![Research](https://img.shields.io/badge/Research-3C3C3D?style=for-the-badge&logo=readthedocs&logoColor=white)
+
