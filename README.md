@@ -18,7 +18,7 @@ I am currently completing my MSc in AI at the Vrije Universiteit Amsterdam.
 </p>
 
 ## 🚀 Projects
-
+These projects are academic projects that I completed during my BSc and MSc. 
 📁 [View My Projects Folder](https://github.com/mikashaham2002/mikashaham2002/tree/main/Projects)
 
 ### 🧠 Tech Stack
