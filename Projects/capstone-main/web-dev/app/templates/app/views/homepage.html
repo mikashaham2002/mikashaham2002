@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block base_content %}
+<div class="w-full h-full right-0 top-16 bg-no-repeat bg-[url('/static/images/ncc-background.svg')] bg-right-top absolute -z-10 origin-top-right scale-y-50 opacity-50 md:scale-y-75 md:opacity-75 lg:scale-100 lg:opacity-100 min-h-[732px]"></div>
+<div id="content-core" class="container pt-11 ">
+  <div class="bg-transparent sm:w-4/5 md:w-3/5 my-12 mb-20 md:mb-34">
+    <h1 tabindex="0">Explore Internet Data</h1>
+    <p class="text-base pb-5" tabindex="0">Explore the connections between internet infrastructure, connectivity and economic growth.
+        Discover real-world examples highlighting the vital role of internet infrastructure in shaping economic progress.
+        Analyze how other countries developed and enforced digital initatives to promote a healthy internet and
+        steady economic growth.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a class="btn btn-primary" href="/countries/">Country Profiles<span><i class="icon icon-tiny icon-arrow-right"></i></span></a>
+      <a class="btn btn-secondary" href="/digital-initiatives/">Digital Initiatives<span><i class="icon icon-tiny icon-arrow-right"></i></span></a>
+    </div>
+  </div>
+
+  <h2>IIED Index</h2>
+  <p class="w-5/6">The Internet Infrastructure and Economic Development Index reveal the internet
+    and economy development across RIPE NCC regions from 2015 to 2023. It combines separate <a href="{% url 'data-indicators'%}" class="underline">Internet and Economic indices</a>, each built from a range of relevant indicators.</p>
+  {% include "app/includes/map-key.html" %}
+  <div class="lg:hidden flex gap-2 my-4">
+    <button id="zoom-in" class="btn btn-secondary">Zoom In</button>
+    <button id="zoom-out" class="btn btn-secondary">Zoom Out</button>
+    <button id="reset" class="btn btn-secondary">Reset</button>
+  </div>
+  <div class="flex justify-center">
+    <div id="svg-map-container" class="w-full h-[250px] md:h-auto md:h-min-[200px] lg:border-none border border-ncc overflow-hidden relative">
+      <div id="svg-map" class="scale-[1.7] md:scale-none origin-top translate-x-12 md:translate-x-0">
+        Loading map
+      </div>
+    </div>
+  </div>
+  <div id="tooltip" class="absolute hidden bg-white border border-gray-400 rounded px-3 py-2 text-sm shadow-lg pointer-events-none z-50" role="tooltip" aria-hidden="true"></div>
+
+  <div class="mt-10 lg:mt-10 flex flex-col w-auto lg:w-5/6 bg-white">
+    <h2>IIED Index Table</h2>
+    <table class="table-auto mt-5 w-full text-left lg:table-fixed min-h-[600px]">
+      <thead>
+        <tr class="text-base lg:text-lg border-b border-ncc-light lg:w-1/4">
+          <th class="pb-2 break-words">Country</th>
+          <th class="pb-2">Index score / 100</th>
+          <th class="pb-2 px-3 sm:px-2">Rank</th>
+          <th class="pb-2 sm:px-2">Score Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for country in country_reports %}
+          <tr class="border-b border-ncc-light w-full lg:w-1/4">
+            <td class="py-2 break-words">{{ country.Name }}</td>
+            <td class="py-2 px-2"> {{ country.Overall_Index_2023|safe}}</td>
+            <td class="py-3 px-3">{{ country.Rank|safe }}</td>
+            <td class="py-3 px-2">
+              <span class="inline-block min-w-[23px] lg:min-w-[35px]">
+                {{ country.Score_Change|safe }}
+              </span>
+              {% if country.Score_Change == 0 %}
+                <i class="icon icon-small icon-equal" role="img" aria-label="No change"></i>
+              {% elif country.Score_Change < 0 %}
+                <i class="icon icon-small icon-arrow-down" role="img" aria-label="Score decrease"></i>
+              {% elif country.Score_Change > 0 %}
+                <i class="icon icon-small icon-arrow-up" role="img" aria-label="Score increase"></i>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<script src="{% static 'js/map-drag.js' %}"></script>
+<script src="{% static 'js/map-zoom.js' %}"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", async function () {
+        // Fetch color and tooltip mapping
+        const colorMapping = JSON.parse('{{ color_mapping|escapejs }}');
+        const tooltipMapping = JSON.parse('{{ tooltip_mapping|escapejs }}');
+
+        // Fetch SVG map
+        const response = await fetch("{% static 'images/map.svg' %}");
+        const svgText = await response.text();
+        const svgContainer = document.getElementById("svg-map");
+        svgContainer.innerHTML = svgText;
+        const svgElement = svgContainer.querySelector("svg");
+        const tooltip = document.getElementById("tooltip");
+
+        // Call drag and zoom function
+        const panContainer = document.getElementById("svg-map");
+        const panWrapper = document.getElementById("svg-map-container");
+        const dragControls = settingDrag(panContainer, panWrapper, svgElement);
+        window.dragControls = dragControls;
+
+
+        // Show tooltip
+        function showTooltip(e, name) {
+            const data = tooltipMapping[name];
+            if (!data) return;
+
+            tooltip.innerHTML = `
+                <strong>${name}</strong><br>
+                IIED Index: ${data.Overall}<br>
+                Economic Index: ${data.GNI}<br>
+                Internet Index: ${data.Internet}
+            `;
+
+             if (e.type === "mousemove") {
+              tooltip.style.left = `${e.pageX + 15}px`;
+              tooltip.style.top = `${e.pageY + 15}px`;
+            } else if (e.type === "focus") {
+              const rect = e.target.getBoundingClientRect();
+              tooltip.style.left = `${rect.left + window.scrollX}px`;
+              tooltip.style.top = `${rect.bottom + window.scrollY + 10}px`;
+            }
+
+            tooltip.classList.remove("hidden");
+        }
+        // Hide tooltip
+        function hideTooltip() {
+            tooltip.classList.add("hidden");
+        }
+
+        // Add tooltip to each country
+        function setupEvents(el, name) {
+            const data = tooltipMapping[name];
+            if (!data) return;
+
+            const tooltipText = `${name}. IIED Index: ${data.Overall || "N/A"}. Economic Index: ${data.GNI || "N/A"}. Internet Index: ${data.Internet || "N/A"}.`;
+
+            el.setAttribute("tabindex", "0");
+            el.setAttribute("role", "img");
+            el.setAttribute("aria-label", tooltipText);
+
+            el.addEventListener("mousemove", e => showTooltip(e, name));
+            el.addEventListener("mouseleave", hideTooltip);
+            el.addEventListener("focus", e => showTooltip(e, name));
+            el.addEventListener("blur", hideTooltip);
+        }
+
+        const processedCountries = new Set();
+
+        // Process elements with title
+        svgElement.querySelectorAll("path[title]").forEach(path => {
+            const country = path.getAttribute("title").trim();
+            const color = colorMapping[country];
+            if (color) {
+                path.style.fill = color;
+            }
+            path.style.stroke = "white";
+            path.style.strokeWidth = "0.5";
+
+            if (!processedCountries.has(country)) {
+                setupEvents(path, country);
+                processedCountries.add(country);
+            }
+        });
+
+        // Process grouped elements with title
+        svgElement.querySelectorAll("g").forEach(group => {
+            const titleEl = group.querySelector("title");
+            if (!titleEl) return;
+
+            const country = titleEl.textContent.trim();
+            const color = colorMapping[country];
+
+            group.querySelectorAll("path").forEach(path => {
+                if (color) path.style.fill = color;
+                path.style.stroke = "white";
+                path.style.strokeWidth = "0.5";
+            });
+
+            if (!processedCountries.has(country)) {
+                setupEvents(group, country);
+                processedCountries.add(country);
+            }
+        });
+
+        // Process all path elements with title
+        svgElement.querySelectorAll("path").forEach(path => {
+            const titleEl = path.querySelector("title");
+            if (!titleEl) return;
+
+            const country = titleEl.textContent.trim();
+            const color = colorMapping[country];
+            if (color) path.style.fill = color;
+            path.style.stroke = "white";
+            path.style.strokeWidth = "0.5";
+
+            if (!processedCountries.has(country)) {
+                setupEvents(path, country);
+                processedCountries.add(country);
+            }
+        });
+
+        // Remove title tags that are not needed
+        svgContainer.querySelectorAll("title").forEach(t => t.remove());
+    });
+</script>
+{% endblock %}

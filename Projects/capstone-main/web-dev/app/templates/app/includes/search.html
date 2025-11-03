@@ -1,0 +1,12 @@
+{% load static %}
+
+<div class="relative">
+    <p class="text-ncc font-sans font-semibold text-[1rem] mb-1">Quick Find:</p>
+    <form method="GET" action="{% url 'search_view' %}" class="relative mb-7">
+        <input class="search_bar pl-6" placeholder="Search country" type="search" name="query" aria-label="Search">
+        <button type="submit" aria-label="Submit search" class="search_btn absolute top-1/2 transform -translate-y-1/2 text-[0.80rem]">
+            Search
+        </button>
+        <i class=" absolute left-1 top-1/2 transform -translate-y-1/2 text-gray-500 ml-1 icon icon-search"></i>
+    </form>
+</div>

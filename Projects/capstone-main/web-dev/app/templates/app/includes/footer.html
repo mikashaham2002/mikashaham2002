@@ -1,0 +1,40 @@
+{% load static %}
+<footer class="bg-ncc-xlight mt-12 sm:mt-24 border-t border-gray-300 pb-8">
+  <div class="container text-ncc-medium flex flex-col gap-3 md:gap-11 sm:items-center items-start pt-12 sm:pt-24 sm:pb-6">
+    <div class="grid sm:grid-cols-3 md:grid-cols-4 gap-9 items-start self-stretch">
+      <div class="sm:col-span-2 md:col-span-3 -mt-7">
+        <a class="flex" href="/"><img class="h-7 my-1" src="{% static 'images/ripe-ncc-logo.svg' %}" alt="RIPE NCC Homepage"></a>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row sm:justify-between w-full gap-y-6 ">
+      <div class="flex flex-col gap-3 sm:w-1/3">
+        <span class="text-xs leading-5.5 font-bold mb-2">
+          &#169; 1992&ndash;{% now "Y" %} RIPE NCC
+        </span>
+        <div class="flex items-center">
+          <a href="https://www.ripe.net/about-us/support/contact/social-networking/" class="flex gap-2.5" aria-label="Social Media">
+            <i class="icon icon-mastodon"></i>
+            <i class="icon icon-facebook"></i>
+            <i class="icon icon-instagram"></i>
+            <i class="icon icon-x"></i>
+            <i class="icon icon-linkedin"></i>
+            <i class="icon icon-youtube"></i>
+            <i class="icon icon-github"></i>
+          </a>
+        </div>
+      </div>
+      <nav class="text-[0.80rem] lg:mt-10 flex flex-wrap gap-y-1 gap-x-5 items-start content-start self-stretch sm:w-2/3" aria-label="Footer links">
+        <a href="/">Home</a>
+        <a href="https://www.ripe.net/about-us/support/contact/">Contact Us</a>
+        <a href="https://www.ripe.net/about-us/staff/careers-at-the-ripe-ncc/">Careers</a>
+        <a href="https://status.ripe.net/">Service Announcements</a>
+        <a href="https://www.ripe.net/about-us/legal/ripe-ncc-privacy-statement/">Privacy Statement</a>
+        <a href="https://www.ripe.net/about-us/legal/">Legal</a>
+        <a href="https://www.ripe.net/about-us/legal/cookies/">Cookies</a>
+        <a href="https://www.ripe.net/about-us/legal/copyright-statement/">Copyright Statement</a>
+        <a href="https://www.ripe.net/about-us/legal/terms-of-service/">Terms of Service</a>
+        <a href="https://www.ripe.net/about-us/news/feeds/" class="inline-flex">RSS Feeds <img class="ml-1" src="{% static 'images/rss.svg' %}" alt="RSS Feeds icon"></a>
+      </nav>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static breadcrumbs %}
+
+{% block base_content %}
+<div id="content-core" class="container pt-11">
+  {% breadcrumbs %}
+    <h1>Country Comparison</h1>
+    <p class="-mt-1 mb-5 w-5/6">
+        Explore and analyze the differences in internet infrastructure and economy between {{ selected_countries_names|join:" and " }}.
+    </p>
+   {% include "app/includes/dropdown.html" with width_class="w-50 md:w-70 lg:w-80" country_reports=country_reports %}
+    <div class=" mt-5 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-6 ">
+        {% for country_data in selected_countries_data %}
+            {% with country_name=country_data.Name %}
+            <div class="flex flex-col">
+                <!-- Country Header -->
+                <div class="block_item mb-5">
+                    <a href="{% url 'profile' country_slug=country_data.Slug %}" class="relative text-2xl font-bold">
+                        <i class="icon icon-small icon-arrow-right absolute mt-2.5 -ml-5.5 !hover:bg-ncc-bright"></i>
+                        {{ country_data.Name }}
+                    </a>
+                    <img src="https://flagcdn.com/{{country_data.Prefix}}.svg" class="border border-gray-400 w-12 h-8 object-cover" alt="Flag for {{country_data.Name}}">
+                </div>
+                <!-- Key Insights -->
+                <h2 class="font-medium text-lg">Key Insights</h2>
+                <ol class="list-decimal pl-5">
+                    <li>The country's economic index score in 2023 is <strong class="text-ncc text-lg">{{country_data.GNI_Economic_Index_2023}}</strong>.</li>
+                    <li>The country's internet index score in 2023 is <strong class="text-ncc text-lg">{{country_data.Internet_Index_2023}}</strong>.</li>
+                    <li>The income classification for this country is <strong class="text-ncc text-lg">{{country_data.Income_Class}}</strong>.</li>
+                </ol>
+                <!-- Economic Graphs -->
+                {% for country, econ_graph in econ_graphs %}
+                    {% if country == country_name %}
+                    <div class="category">
+                        <h2 class="text-2xl font-medium text-ncc mt-7 mb-1">Economic Indicators</h2>
+                        <div class="grid grid-cols-1 gap-2 md:gap-3 lg:gap-4 w-full max-w-[90%] md:max-w-full mx-auto">
+                            {% for indicator, graph in econ_graph.items %}
+                            <div class="graph-container relative min-h-60" tabindex="0">
+                                <h3 class="text-xl font-semibold text-left">{{ graph.title }}</h3>
+                                <p class="text-left text-xl text-ncc-soft">{{ graph.summary | safe }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                <!-- Internet Graphs -->
+                {% for country, internet_graph in internet_graphs %}
+                    {% if country == country_name %}
+                    <div class="category mt-10">
+                        <h2 class="text-2xl font-medium text-ncc">Key Internet Indicators</h2>
+                        <div class="grid grid-cols-1 gap-2 md:gap-3 lg:gap-4 w-full max-w-[90%] md:max-w-full mx-auto">
+                            {% for indicator, graph in internet_graph.items %}
+                            <div class="graph-container relative min-h-60" tabindex="0">
+                                <h3 class="text-xl font-semibold text-left">{{ graph.title }}</h3>
+                                <p class="text-left text-xl text-ncc-soft">{{ graph.summary | safe }}</p>
+                                {% if graph.plot_div %}
+                                <figure class="interactive-graph-container w-full h-auto">
+                                    {{ graph.plot_div|safe }}
+                                    <figcaption class="sr-only">
+                                    Line chart representing time-series data of {{ graph.title }}
+                                    </figcaption>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endwith %}
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

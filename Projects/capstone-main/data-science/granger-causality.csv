@@ -1,0 +1,157 @@
+,Country,Cause x,Effect y,p-value
+43,Armenia,v4_prefixes_ris,GDP per Capita,0.0
+44,Armenia,asns_ris,GDP per Capita,0.0091
+45,Armenia,asns_stats,GDP per Capita,0.0071
+46,Armenia,GDP per Capita,v4_prefixes_ris,0.0234
+47,Armenia,asns_ris,v4_prefixes_ris,0.0
+48,Armenia,v4_prefixes_stats,v4_prefixes_ris,0.0021
+49,Armenia,v6_prefixes_stats,v4_prefixes_ris,0.0021
+50,Armenia,asns_stats,v4_prefixes_ris,0.0039
+51,Armenia,imputed bandwidth,v4_prefixes_ris,0.0202
+52,Armenia,GDP per Capita,v6_prefixes_ris,0.0
+53,Armenia,v4_prefixes_ris,v6_prefixes_ris,0.0218
+54,Armenia,asns_ris,v6_prefixes_ris,0.0341
+55,Armenia,asns_stats,v6_prefixes_ris,0.0052
+56,Armenia,GDP per Capita,asns_ris,0.0132
+57,Armenia,v6_prefixes_ris,v4_prefixes_stats,0.0061
+58,Armenia,imputed speed,v4_prefixes_stats,0.0185
+59,Armenia,imputed bandwidth,v4_prefixes_stats,0.0046
+60,Armenia,v6_prefixes_ris,v6_prefixes_stats,0.0061
+61,Armenia,imputed speed,v6_prefixes_stats,0.0185
+62,Armenia,imputed bandwidth,v6_prefixes_stats,0.0046
+63,Armenia,GDP per Capita,imputed speed,0.0003
+64,Armenia,v4_prefixes_ris,imputed speed,0.0048
+65,Armenia,v6_prefixes_ris,imputed speed,0.0056
+66,Armenia,asns_ris,imputed speed,0.0003
+67,Armenia,asns_stats,imputed speed,0.0004
+68,Armenia,imputed bandwidth,imputed speed,0.0004
+69,Armenia,v6_prefixes_ris,imputed bandwidth,0.0266
+70,Armenia,imputed speed,imputed bandwidth,0.0001
+302,Estonia,asns_stats,GDP per Capita,0.009
+303,Estonia,GDP per Capita,v4_prefixes_ris,0.0117
+304,Estonia,GDP per Capita,v6_prefixes_ris,0.0033
+305,Estonia,v4_prefixes_ris,v6_prefixes_ris,0.0108
+306,Estonia,asns_ris,v6_prefixes_ris,0.0376
+307,Estonia,asns_stats,v6_prefixes_ris,0.0301
+308,Estonia,v4_prefixes_stats,asns_ris,0.0
+309,Estonia,v6_prefixes_stats,asns_ris,0.0
+310,Estonia,asns_stats,asns_ris,0.0187
+311,Estonia,GDP per Capita,asns_stats,0.0
+312,Estonia,imputed speed,asns_stats,0.0412
+313,Estonia,v4_prefixes_ris,imputed speed,0.0002
+314,Estonia,v6_prefixes_ris,imputed speed,0.0026
+315,Estonia,v4_prefixes_stats,imputed speed,0.0168
+316,Estonia,v6_prefixes_stats,imputed speed,0.0168
+317,Estonia,asns_stats,imputed speed,0.0385
+318,Estonia,v4_prefixes_ris,imputed bandwidth,0.0003
+319,Estonia,v6_prefixes_ris,imputed bandwidth,0.0061
+320,Estonia,v4_prefixes_stats,imputed bandwidth,0.0079
+321,Estonia,v6_prefixes_stats,imputed bandwidth,0.0079
+322,Estonia,asns_stats,imputed bandwidth,0.048
+573,Kazakhstan,v4_prefixes_ris,GDP per Capita,0.0018
+574,Kazakhstan,v6_prefixes_ris,GDP per Capita,0.0079
+575,Kazakhstan,asns_ris,GDP per Capita,0.0
+576,Kazakhstan,asns_stats,GDP per Capita,0.0001
+577,Kazakhstan,imputed bandwidth,GDP per Capita,0.0002
+578,Kazakhstan,v6_prefixes_ris,v4_prefixes_ris,0.0483
+579,Kazakhstan,asns_ris,v4_prefixes_ris,0.0
+580,Kazakhstan,asns_stats,v4_prefixes_ris,0.0363
+581,Kazakhstan,imputed bandwidth,v4_prefixes_ris,0.0001
+582,Kazakhstan,v4_prefixes_ris,v6_prefixes_ris,0.0
+583,Kazakhstan,asns_ris,v6_prefixes_ris,0.0247
+584,Kazakhstan,asns_stats,v6_prefixes_ris,0.0
+585,Kazakhstan,v4_prefixes_ris,asns_ris,0.0066
+586,Kazakhstan,asns_stats,asns_ris,0.0073
+587,Kazakhstan,imputed bandwidth,asns_ris,0.0031
+588,Kazakhstan,v4_prefixes_ris,v4_prefixes_stats,0.0
+589,Kazakhstan,v6_prefixes_ris,v4_prefixes_stats,0.0072
+590,Kazakhstan,asns_ris,v4_prefixes_stats,0.0154
+591,Kazakhstan,asns_stats,v4_prefixes_stats,0.0001
+592,Kazakhstan,v4_prefixes_ris,v6_prefixes_stats,0.0
+593,Kazakhstan,v6_prefixes_ris,v6_prefixes_stats,0.0072
+594,Kazakhstan,asns_ris,v6_prefixes_stats,0.0154
+595,Kazakhstan,asns_stats,v6_prefixes_stats,0.0001
+596,Kazakhstan,v4_prefixes_stats,asns_stats,0.0005
+597,Kazakhstan,v6_prefixes_stats,asns_stats,0.0005
+598,Kazakhstan,v6_prefixes_ris,imputed speed,0.0164
+599,Kazakhstan,GDP per Capita,imputed bandwidth,0.0005
+600,Kazakhstan,v4_prefixes_ris,imputed bandwidth,0.0334
+601,Kazakhstan,v6_prefixes_ris,imputed bandwidth,0.0012
+602,Kazakhstan,asns_ris,imputed bandwidth,0.0001
+603,Kazakhstan,asns_stats,imputed bandwidth,0.0199
+925,Poland,v6_prefixes_ris,GDP per Capita,0.0122
+926,Poland,v4_prefixes_stats,GDP per Capita,0.0014
+927,Poland,v6_prefixes_stats,GDP per Capita,0.0014
+928,Poland,asns_ris,v4_prefixes_ris,0.0395
+929,Poland,asns_stats,v4_prefixes_ris,0.0013
+930,Poland,v4_prefixes_ris,v6_prefixes_ris,0.0232
+931,Poland,asns_stats,asns_ris,0.0001
+932,Poland,GDP per Capita,v4_prefixes_stats,0.0
+933,Poland,v4_prefixes_ris,v4_prefixes_stats,0.0001
+934,Poland,v6_prefixes_ris,v4_prefixes_stats,0.0
+935,Poland,asns_ris,v4_prefixes_stats,0.001
+936,Poland,asns_stats,v4_prefixes_stats,0.0102
+937,Poland,imputed speed,v4_prefixes_stats,0.0028
+938,Poland,imputed bandwidth,v4_prefixes_stats,0.0083
+939,Poland,GDP per Capita,v6_prefixes_stats,0.0
+940,Poland,v4_prefixes_ris,v6_prefixes_stats,0.0001
+941,Poland,v6_prefixes_ris,v6_prefixes_stats,0.0
+942,Poland,asns_ris,v6_prefixes_stats,0.001
+943,Poland,asns_stats,v6_prefixes_stats,0.0102
+944,Poland,imputed speed,v6_prefixes_stats,0.0028
+945,Poland,imputed bandwidth,v6_prefixes_stats,0.0083
+946,Poland,GDP per Capita,asns_stats,0.0101
+947,Poland,v4_prefixes_ris,asns_stats,0.0
+948,Poland,v6_prefixes_ris,asns_stats,0.0
+949,Poland,asns_ris,asns_stats,0.0
+950,Poland,v4_prefixes_ris,imputed speed,0.0016
+951,Poland,asns_ris,imputed speed,0.0002
+952,Poland,v4_prefixes_stats,imputed speed,0.0
+953,Poland,v6_prefixes_stats,imputed speed,0.0
+954,Poland,asns_stats,imputed speed,0.0001
+955,Poland,v4_prefixes_ris,imputed bandwidth,0.0024
+956,Poland,asns_ris,imputed bandwidth,0.0012
+957,Poland,v4_prefixes_stats,imputed bandwidth,0.0007
+958,Poland,v6_prefixes_stats,imputed bandwidth,0.0007
+959,Poland,asns_stats,imputed bandwidth,0.0007
+960,Poland,imputed speed,imputed bandwidth,0.0046
+1013,Romania,asns_ris,GDP per Capita,0.0002
+1014,Romania,asns_stats,GDP per Capita,0.0
+1015,Romania,asns_ris,v6_prefixes_ris,0.0005
+1016,Romania,v4_prefixes_stats,asns_ris,0.017
+1017,Romania,v6_prefixes_stats,asns_ris,0.017
+1018,Romania,asns_stats,asns_ris,0.0261
+1019,Romania,imputed bandwidth,asns_ris,0.0232
+1020,Romania,v6_prefixes_ris,v4_prefixes_stats,0.0084
+1021,Romania,asns_ris,v4_prefixes_stats,0.0026
+1022,Romania,imputed speed,v4_prefixes_stats,0.0118
+1023,Romania,imputed bandwidth,v4_prefixes_stats,0.0063
+1024,Romania,v6_prefixes_ris,v6_prefixes_stats,0.0084
+1025,Romania,asns_ris,v6_prefixes_stats,0.0026
+1026,Romania,imputed speed,v6_prefixes_stats,0.0118
+1027,Romania,imputed bandwidth,v6_prefixes_stats,0.0063
+1028,Romania,v6_prefixes_ris,asns_stats,0.0039
+1029,Romania,asns_ris,asns_stats,0.0
+1030,Romania,imputed bandwidth,asns_stats,0.0342
+1031,Romania,imputed speed,imputed bandwidth,0.0108
+1180,Spain,GDP per Capita,v4_prefixes_ris,0.0062
+1181,Spain,v4_prefixes_stats,v4_prefixes_ris,0.0
+1182,Spain,v6_prefixes_stats,v4_prefixes_ris,0.0
+1183,Spain,asns_stats,v4_prefixes_ris,0.0
+1184,Spain,asns_stats,v6_prefixes_ris,0.0008
+1185,Spain,asns_stats,asns_ris,0.0
+1186,Spain,GDP per Capita,asns_stats,0.0086
+1187,Spain,v4_prefixes_ris,asns_stats,0.0
+1188,Spain,asns_ris,asns_stats,0.0004
+1189,Spain,v4_prefixes_stats,asns_stats,0.0031
+1190,Spain,v6_prefixes_stats,asns_stats,0.0031
+1191,Spain,v4_prefixes_ris,imputed speed,0.0
+1192,Spain,v6_prefixes_ris,imputed speed,0.0424
+1193,Spain,asns_ris,imputed speed,0.0
+1194,Spain,asns_stats,imputed speed,0.0
+1195,Spain,imputed bandwidth,imputed speed,0.0025
+1196,Spain,v4_prefixes_ris,imputed bandwidth,0.0
+1197,Spain,v6_prefixes_ris,imputed bandwidth,0.0008
+1198,Spain,asns_ris,imputed bandwidth,0.0
+1199,Spain,asns_stats,imputed bandwidth,0.0
+1200,Spain,imputed speed,imputed bandwidth,0.0002

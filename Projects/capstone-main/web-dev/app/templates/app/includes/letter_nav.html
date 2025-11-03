@@ -1,0 +1,11 @@
+<p class="text-ncc font-bold text-base mb-3">Letter Navigation:</p>
+<ul class="flex pb-10 text-ncc-soft flex-wrap list-none -ml-2">
+    {% for letter in country_initials %}
+        <li class="flex items-center">
+            <a href="#{{ letter }}" class="px-2">{{ letter }}</a>
+            {% if not forloop.last %}
+                <span>&#124;</span>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

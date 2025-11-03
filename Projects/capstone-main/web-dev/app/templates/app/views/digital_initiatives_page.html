@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static breadcrumbs %}
+
+{% block base_content %}
+<div id="content-core" class="container mx-auto pt-11">
+    {% breadcrumbs %}
+    <h1>International Digital Initiatives</h1>
+    <p class="mb-6">Assess and compare the digital initiatives undertaken by countries across the NCC regions.</p>
+    {% include "app/includes/letter_nav.html" %}
+    {% for letter in country_initials %}
+        <h2 id="{{ letter }}" class="text-3xl font-bold">{{ letter }}</h2>
+        {% for country in digital_initiatives %}
+            {% if country.Name|first == letter %}
+                <div class="flex space-x-3 mb-4 mt-6" tabindex="0">
+                    <img src="https://flagcdn.com/{{ country.Prefix }}.svg" class="border border-gray-400 p-0 w-14 h-9 -mt-1 object-cover" alt="Flag of {{country.Name}}">
+                    <h3 class="font-medium text-lg">{{ country.Name }}</h3>
+                </div>
+                <p class="-mt-1"><strong class="text-ncc font-semibold">Program:</strong> {{ country.Program }}</p>
+                <p class="mt-2 w-5/6">{{ country.Objectives }}</p>
+                <p class="mt-2 text-sm mb-10 text-ncc-soft">Source: <a href="{{ country.Source_Link }}" class="underline">{{ country.Source_Name }}</a></p>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>
+
+{% endblock %}

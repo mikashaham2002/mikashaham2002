@@ -1,0 +1,14 @@
+<fieldset>
+<legend class="text-ncc font-sans font-semibold text-[1rem] mt-5">Filter by Income:</legend>
+    <form method="GET" action="{% url 'income-classification' %}" class="mb-7">
+        <input type="radio" id="high-income" name="income_class" value="High income country" class="cursor-pointer">
+        <label for="high-income">High income country</label><br>
+        <input type="radio" id="upper-middle-income" name="income_class" value="Upper Middle income country" class="cursor-pointer">
+        <label for="upper-middle-income">Upper Middle income country</label><br>
+        <input type="radio" id="lower-middle-income" name="income_class" value="Lower Middle income country" class="cursor-pointer">
+        <label for="lower-middle-income">Lower Middle income country</label><br>
+        <input type="radio" id="low-income" name="income_class" value="Low income country" class="cursor-pointer">
+        <label for="low-income">Low income country</label><br>
+        <button type="submit" aria-label="Submit filter" class="filter_btn">Filter</button>
+    </form>
+</fieldset>

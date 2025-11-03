@@ -1,0 +1,43 @@
+<fieldset>
+  <legend class="text-ncc font-sans font-semibold text-[1rem]">Compare Countries:</legend>
+  <form action="{% url 'compare-country' %}" method="GET" class="mb-5 mt-2">
+    <div class="group relative">
+      <div class="selected-tags mt-2">
+        {% if selected_countries_names %}
+          {% for name in selected_countries_names %}
+            <div class="tag" data-country="{{ name }}">
+              <span>{{ name }}</span>
+              <div class="remove-tag" onclick="removeTag(this)">&#10005;</div>
+            </div>
+          {% endfor %}
+        {% elif country %}
+          <div class="tag" data-country="{{ country.Name }}">
+            <span>{{ country.Name }}</span>
+            <div class="remove-tag" onclick="removeTag(this)">&#10005;</div>
+          </div>
+        {% endif %}
+      </div>
+      <div class="relative" id="dropdownWrapper">
+        <input class="search_bar pl-6 {{ width_class }}" placeholder="Add 2 countries"
+              type="search" aria-label="Search" id="countrySearch">
+        <button type="submit" aria-label="Submit search"
+              class="search_btn absolute top-1/2 transform -translate-y-1/2 text-[0.80rem]">Submit</button>
+        <i class="absolute left-1 top-1/2 transform -translate-y-1/2 text-gray-500 ml-1 icon icon-dropdown"></i>
+        <div class="country_dropdown {{ width_class }}" id="countryDropdown">
+          {% for country_option in country_reports %}
+            <div class="checkbox-item flex items-center gap-2 px-2 py-1">
+              <input type="checkbox"
+                      name="country"
+                      value="{{ country_option.Name }}"
+                      {% if selected_countries_names and country_option.Name in selected_countries_names %}
+                        checked
+                      {% elif country and country_option.Name == country.Name %}
+                        checked
+                      {% endif %}>
+              <label>{{ country_option.Name }}</label>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+  </form>
+</fieldset>

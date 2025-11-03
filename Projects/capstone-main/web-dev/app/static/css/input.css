@@ -1,0 +1,239 @@
+@import "tailwindcss";
+@config "../../../tailwind.config.js";
+@import "./icons.css";
+
+@font-face {
+    font-display: swap;
+    font-family: Public Sans;
+    font-style: normal;
+    font-weight: 100 900;
+    src: url(/static/fonts/public-sans-latin-ext-normal.woff2) format("woff2");
+    unicode-range: u+0100-02af,u+0304,u+0308,u+0329,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20cf,u+2113,u+2c60-2c7f,u+a720-a7ff
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Public Sans;
+    font-style: normal;
+    font-weight: 100 900;
+    src: url(/static/fonts/public-sans-latin-normal.woff2) format("woff2");
+    unicode-range: u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd
+}
+
+@layer base {
+    body {
+        @apply font-sans m-0 bg-white text-black text-base font-normal leading-6
+    }
+
+    html {
+        -webkit-text-size-adjust: 100%;
+        font-feature-settings: normal;
+        font-family: Public Sans,sans-serif;
+        font-variation-settings: normal;
+        line-height: 1.5;
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4
+    }
+
+    a:hover {
+        @apply underline text-ncc-bright
+    }
+
+    h1 {
+        @apply text-ncc text-4xl font-bold leading-10 pb-4 font-sans
+    }
+
+    h2 {
+        @apply text-ncc text-2xl font-bold leading-7 pb-3 font-sans
+    }
+
+    h3 {
+        @apply text-ncc text-xl font-bold leading-6 pb-3 font-sans
+    }
+
+    h4 {
+        @apply text-ncc text-xl font-semibold leading-5 pb-1 font-sans
+    }
+
+    h5 {
+        @apply text-ncc text-sm font-semibold leading-5 pb-1 font-sans
+    }
+
+    :focus-visible {
+        @apply outline-orange-500 outline-2 outline-offset-2 rounded;
+    }
+}
+
+@layer utilities{
+    .container {
+        @apply ml-auto mr-auto w-full lg:pl-10 lg:pr-10 pl-6 pr-6 max-w-[1536px]
+    }
+
+    #skip-nav {
+        @apply h-px w-px absolute top-auto overflow-hidden left-[-1000px]
+    }
+
+    #skip-nav:focus {
+        @apply bg-white text-ncc-bright overflow-auto fixed underline pb-3 border-2 rounded-lg h-auto left-1 ml-4 mt-1 outline-2 outline-offset-2 p-3 w-auto
+    }
+
+}
+
+@layer components{
+
+    .btn {
+        @apply inline-flex items-center justify-center rounded-lg box-border px-3 py-[0.05rem]  font-sans;
+    }
+
+
+    .btn span {
+        @apply whitespace-nowrap
+
+    }
+
+
+    .btn:hover {
+        @apply cursor-pointer no-underline
+    }
+
+    .btn:focus {
+        @apply outline-orange-500 outline-2 outline-solid
+    }
+
+    .btn-primary {
+        @apply bg-ncc text-white
+    }
+
+    .btn-primary i {
+        background-color: white !important;
+        position: relative;
+        top: 13px;
+        left:9px;
+
+    }
+
+    .btn-primary:hover {
+        @apply bg-ncc-bright border-0 border-ncc
+    }
+
+
+    .btn-secondary {
+       @apply bg-white text-ncc border-ncc border-0 outline-1 outline-solid outline-ncc
+
+    }
+
+    .btn-secondary i {
+        background-color: ncc !important;
+        position: relative;
+        top: 13px;
+        left:9px;
+    }
+
+
+    .btn-secondary:hover {
+        @apply bg-ncc-bright border-0 border-ncc text-white
+    }
+
+    .btn-secondary:hover i {
+        background-color: white !important;
+        position: relative;
+        top: 13px;
+        left:9px;
+    }
+
+    .search_btn {
+        @apply bg-ncc text-white font-sans no-underline rounded-r-md -ml-1 px-2 shadow-sm
+    }
+
+    .search_btn:hover {
+        @apply bg-ncc-bright cursor-pointer
+    }
+
+    .search_bar {
+        @apply placeholder:text-gray-400 border border-ncc-light rounded-l-md p-2 shadow-sm w-40
+    }
+
+    .search_btn, .search_bar {
+        @apply leading-tight text-sm h-8
+    }
+
+    .country_dropdown {
+        @apply border w-52 h-40 absolute rounded overflow-y-scroll bg-white z-10;
+        display: none;
+      }
+
+    .country_dropdown.open {
+        @apply block;
+    }
+
+    .country_dropdown input[type="checkbox"] {
+        @apply cursor-pointer
+    }
+
+    .selected-tags {
+        @apply flex flex-wrap
+    }
+
+    .selected-tags .tag {
+        @apply bg-gray-100 border rounded-4xl border-ncc flex p-2 items-center cursor-pointer mr-2 text-sm mb-2
+    }
+
+    .selected-tags .tag .remove-tag {
+        @apply bg-ncc border rounded-4xl w-4 h-4 flex justify-center items-center text-white text-sm cursor-pointer ml-2
+    }
+
+    .filter_btn {
+        @apply bg-ncc text-white font-sans no-underline rounded-md mt-2  px-5 shadow-sm text-[0.85rem]
+    }
+
+    .filter_btn:hover {
+        @apply bg-ncc-bright cursor-pointer
+    }
+
+    .block_item {
+        @apply flex space-x-3 text-ncc
+    }
+
+    .block_item:hover i {
+         background-color: #3a61e0 !important;
+    }
+
+    .graph-container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        overflow: hidden;
+        flex-direction: column;
+        height: auto;
+        display: flex;
+
+    }
+
+    .summary-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex-grow: 1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    @media (max-width: 1023px) {
+    #svg-map svg {
+        cursor: grab;
+    }
+    }
+
+    #svg-map svg {
+        cursor: default;
+    }
+
+    #svg-map svg g:hover,
+    #svg-map svg path:hover {
+        cursor: default;
+    }
+
+}

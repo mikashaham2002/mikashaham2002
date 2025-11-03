@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static breadcrumbs %}
+
+{% block base_content %}
+<div id="content-core" class="container mx-auto pt-11">
+  {% breadcrumbs %}
+  <div class="flex space-x-3 mb-4" tabindex="0">
+    <h1>{{ country.Name }}</h1>
+    <img src="https://flagcdn.com/{{country.Prefix}}.svg" class="border border-gray-400 p-0 w-14 h-9 -mt-0.5 object-cover" alt="Flag for {{country.Name}}">
+  </div>
+  {% include "app/includes/dropdown.html" with width_class="w-50 md:w-70 lg:w-80" countries=country_reports %}
+  <!-- Key Insights -->
+  <h2 class="font-semibold mt-10">Key Insights</h2>
+  <ol class="list-decimal pl-5 text-[0.95rem]">
+    <li>The country's economic index score in 2023 is <strong class="text-ncc text-lg">{{country.GNI_Economic_Index_2023}}</strong>.</li>
+    <li>The country's internet index score in 2023 is <strong class="text-ncc text-lg">{{country.Internet_Index_2023}}</strong>.</li>
+    <li>The income classification for this country is <strong class="text-ncc text-lg">{{country.Income_Class}}</strong>.</li>
+  </ol>
+  <!-- Economy Category -->
+  <div class="category pt-9 mb-5">
+    <a href="{% url 'data-indicators' %}#economic-indicators" tabindex="0" class="relative text-2xl font-semibold text-ncc mb-5">
+      <i class="icon icon-small icon-arrow-right absolute mt-2.5 -ml-5.5 !hover:bg-ncc-bright"></i>
+      Economic Indicators
+    </a>
+    <p>Explore the latest indicator values related to the economic growth and development of {{country.Name}}. </p>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 pb-15">
+    {% for indicator, graph in econ_graphs.items %}
+      <div class="graph-container relative h-auto" tabindex="0">
+        <h3 class="text-xl font-semibold text-left">{{ graph.title }}</h3>
+        <p class="text-left text-xl text-ncc-soft">{{ graph.summary | safe }}</p>
+      </div>
+    {% endfor %}
+  </div>
+  <!-- Internet Infrastructure Category -->
+  <div class="category mb-5">
+    <a href="{% url 'data-indicators' %}#internet-indicators" tabindex="0" class="relative text-2xl font-semibold text-ncc mb-5">
+      <i class="icon icon-small icon-arrow-right absolute mt-2.5 -ml-5.5 !hover:bg-ncc-bright"></i>
+      Internet Indicators
+    </a>
+    <p>Explore the latest indicator values and analyze change over the years related to the internet infrastructure of {{country.Name}}.</p>
+  </div>
+  <noscript>
+    <div class="mt-4 mb-4 p-4 border border-red-500 bg-red-200 text-red-950">
+      <strong>Note:</strong> Please enable JavaScript to view the graphs.
+    </div>
+  </noscript>
+  <div id="internet-graphs" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    {% for indicator, graph in internet_graphs.items %}
+      <div class="graph-container relative h-auto" tabindex="0">
+        <h3 class="text-xl font-semibold text-left">{{ graph.title }}</h3>
+        <p class="text-left text-xl text-ncc-soft mt-4">{{ graph.summary|safe }}</p>
+        {% if graph.plot_div %}
+          <figure class="interactive-graph-container w-full h-auto">
+            {{ graph.plot_div|safe }}
+            <figcaption class="sr-only">
+              Line chart representing time-series data of {{ graph.title }}
+            </figcaption>
+          </figure>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

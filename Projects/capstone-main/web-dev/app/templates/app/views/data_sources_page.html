@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static breadcrumbs %}
+
+{% block base_content %}
+
+<div id="content-core" class="container mx-auto pt-11">
+    {% breadcrumbs %}
+
+    <h1>Data Indicators</h1>
+    <p class="w-5/6">Our platform brings together reliable data to provide valuable insights into the state and progress of the internet as well as the economic development of countries. While we strive for comprehensive coverage, not all indicators are available for every country. Explore the meaning behind each indicator and discover their data sources. </p>
+     <div class="mb-10 mt-10 w-5/6">
+        <h2>Economic Index</h2>
+        <p class="mb-10">The economic index created is a statistical measure that reflects and groups different economic indicators of a country from 2023. The values included are GNI per Capita, Foreign Investment, Unemployment Rate and Labor Force Participation Rate.</p>
+        <h2>Internet Index</h2>
+        <p>The internet index created is a statistical measure that reflects and groups different internet indicators of a country from 2023. The values included are Internet Penetration Rate, Bandwidth, IPv4 and IPv6 prefix count, Speed and number of ASNs.</p>
+    </div>
+    <div class="mb-10 mt-10 w-5/6">
+        <h2 id="economic-indicators" class="mb-3">Economic Indicators</h2>
+        <h3 class="font-normal">GNI per capita</h3>
+        <p>Gross National Income per capita measures the average income earned by a country’s residents, including income received from abroad. It reflects overall economic well being and living standards.</p>
+        <p class="mt-2 mb-6 text-sm text-ncc-soft">Data Source: <a href="https://data.worldbank.org/indicator/NY.GNP.PCAP.CD" class="underline">World Bank Data</a> and <a href="https://data.un.org/Data.aspx?q=gni+per+capita&d=SNAAMA&f=grID%3a103%3bcurrID%3aUSD%3bpcFlag%3a1" class="underline">UN Data</a> </p>
+        <h3 class="font-normal">Foreign Direct Investment</h3>
+        <p>Refers to the inflow of capital from foreign entities into domestic businesses or assets. It is a key indicator of global investor confidence and economic integration.</p>
+        <p class="mt-2 mb-6 text-sm text-ncc-soft">Data Source: <a href="https://data.worldbank.org/indicator/BN.KLT.DINV.CD" class="underline">World Bank Data</a> </p>
+        <h3 class="font-normal">Labor Force Participation Rate</h3>
+        <p>The percentage of the working-age population (ages 15&ndash;64) that is either employed or actively seeking employment. It reflects how engaged the population is in the labor market.</p>
+        <p class="mt-2 mb-6 text-sm text-ncc-soft">Data Source: <a href="https://data.worldbank.org/indicator/SL.TLF.ACTI.ZS" class="underline">World Bank Data</a> </p>
+        <h3 class="font-normal">Unemployment Rate</h3>
+        <p>The share of the labor force that is unemployed and actively looking for work. High rates can indicate economic distress, while low rates suggest job market stability.</p>
+        <p class="mt-2 mb-6 text-sm text-ncc-soft">Data Source: <a href="https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS" class="underline">World Bank Data</a> </p>
+    </div>
+    <div class="mb-10 mt-10 w-5/6">
+        <h2 id="internet-indicators" class="mb-3">Internet Indicators</h2>
+        <h3 class="font-normal">Internet Penetration Rate</h3>
+        <p>The percentage of the population with regular access to the internet. It is a key indicator of digital inclusion, connectivity, and access to online services.</p>
+        <p class="mt-2 mb-6 text-sm text-ncc-soft">Data Source: <a href="https://data.worldbank.org/indicator/IT.NET.USER.ZS" class="underline">World Bank Data</a> </p>
+        <h3 class="font-normal">Average Internet Speed</h3>
+        <p>Represents the average data download speed available to users. Higher speeds support smoother digital experiences, streaming, remote work, and overall digital productivity.</p>
+        <p class="mt-2 mb-6 text-sm text-ncc-soft">Data Source: <a href="https://datahub.io/@cheredia19/ookla-speedtest-global-index-fixed-broadband-2017-2024" class="underline">Ookla Speedtest Global Index</a> </p>
+        <h3 class="font-normal">Bandwidth Capacity</h3>
+        <p>Measures the total data transmission capacity available. It reflects the ability of the network to handle high demand and support growing internet use.</p>
+        <p class="mt-2 mb-6 text-sm text-ncc-soft">Data Source: <a href="https://stat.ripe.net/docs/02.data-api/mlab-bandwidth.html" class="underline">RIPE NCC</a> </p>
+        <h3 class="font-normal">Number of ASNs</h3>
+        <p>Counts the number of Autonomous System Numbers, which are unique network identifiers in internet routing. A higher number usually indicates greater network decentralization and internet maturity.</p>
+        <p class="mt-2 mb-6 text-sm text-ncc-soft">Data Source: <a href="https://stat.ripe.net/docs/02.data-api/country-resource-list.html" class="underline">RIPE NCC</a> </p>
+        <h3 class="font-normal">IPv4 Prefix Count</h3>
+        <p>The number of allocated IPv4 address blocks. It reflects the scale of internet-connected infrastructure still using the older addressing system..</p>
+        <p class="mt-2 mb-6 text-sm text-ncc-soft">Data Source: <a href="https://stat.ripe.net/docs/02.data-api/country-resource-list.html" class="underline">RIPE NCC</a> </p>
+        <h3 class="font-normal">IPv6 Prefix Count</h3>
+        <p>The number of allocated IPv6 address blocks. A high count suggests readiness for future internet growth and modern infrastructure adoption.</p>
+        <p class="mt-2 mb-6 text-sm text-ncc-soft">Data Source: <a href="https://stat.ripe.net/docs/02.data-api/country-resource-list.html" class="underline">RIPE NCC</a> </p>
+    </div>
+</div>
+
+
+{% endblock %}

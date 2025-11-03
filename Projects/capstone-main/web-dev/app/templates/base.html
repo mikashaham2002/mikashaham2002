@@ -1,0 +1,35 @@
+{% load static compress %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% block title %}
+            {{meta_title}} &mdash; RIPE Network Coordination Centre
+            {% endblock title %}
+        </title>
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="{{ meta_description }}">
+        <meta property="og:description" content="{{ meta_description }}">
+        <meta property="og:title" content="{{ meta_title }}">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="static/images/ripe-ncc-logo.svg">
+        <meta property="og:site_name" content="RIPE Network Coordination Center">
+        <meta property="og:url" content="{{ page.full_url }}">
+        <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+        <script src="https://cdn.plot.ly/plotly-basic-latest.min.js"></script>
+        {% compress js %}
+        <script src="{% static 'js/graph-loading.js' %}" defer></script>
+        {% endcompress %}
+        {% compress css %}<link href="/static/dist/index.css" rel="stylesheet">{% endcompress %}
+    </head>
+    <body class="flex flex-col min-h-screen overflow-x-hidden">
+        {% include "app/includes/header.html" %}
+        <main class="container">
+            {% block base_content %}{% endblock %}
+        </main>
+        {% include "app/includes/footer.html" %}
+    </body>
+    <script src="{% static 'js/dropdown.js' %}" defer></script>
+</html>

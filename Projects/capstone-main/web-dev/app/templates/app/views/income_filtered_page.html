@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static breadcrumbs %}
+
+
+{% block base_content %}
+    <div id="content-core" class="container pt-11">
+        <!--Intro block for mobile-->
+        <div class="block lg:hidden">
+            {% breadcrumbs %}
+            <h1 class="capitalize">Country Reports &#45; {{ income_class }} class</h1>
+            <p class="text-base pb-10">Select a country and explore how internet access, economic development, and social progress intersect across RIPE NCC service regions. </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-x-14 items-start">
+            <div>
+                {% include "app/includes/search.html" %}
+                {% include "app/includes/dropdown.html" with width_class="w-40" country_reports=filtered_countries %}
+            </div>
+            <!--Intro block for desktop-->
+            <div class="col-span-3 w-10/12">
+                <div class="hidden lg:block mb-6">
+                    {% breadcrumbs %}
+                    <h1 class="capitalize">Country Reports &#45; {{ income_class }} class</h1>
+                    <p class="text-base">
+                        Select a country and explore how internet access, economic development, and social progress intersect across RIPE NCC service regions.
+                    </p>
+                </div>
+                {% include "app/includes/letter_nav.html" %}
+                {% for letter in country_initials %}
+                    <h2 id="{{ letter }}">{{ letter }}</h2>
+                    <ul class="flex flex-row flex-wrap mb-12 gap-x-15">
+                        {% for country in filtered_countries %}
+                            {% if country.Name|first == letter %}
+                                <li class="flex pb-7 ">
+                                    <img src="https://flagcdn.com/{{ country.Prefix}}.svg" class="border border-gray-400 w-12 h-8 object-cover"  alt="Flag for {{country.Name}}"><a href="{% url 'profile' country.Slug %}" class="pl-2 w-30 text-sm"> {{ country.Name }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

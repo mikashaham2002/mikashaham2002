@@ -1,0 +1,9 @@
+<nav class="flex flex-wrap items-center text-xs text-ncc-soft font-sans pb-3">
+    <a href="/">Home</a>
+    {% for item in breadcrumbs %}
+        <span class="mx-1 text-ncc-soft">&#47;</span>
+        <a href="{{ item.url }}" class="capitalize">
+            {{ item.name }}
+        </a>
+    {% endfor %}
+</nav>

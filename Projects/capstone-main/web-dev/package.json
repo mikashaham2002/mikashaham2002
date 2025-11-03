@@ -1,0 +1,15 @@
+{
+  "name": "capstone",
+  "scripts": {
+    "build": "postcss app/static/css/input.css -o app/static/dist/index.css --minify",
+    "dev": "postcss app/static/css/input.css -o app/static/dist/index.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.0.15"
+  },
+  "devDependencies": {
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "4.0"
+  }
+}
