@@ -17,3 +17,16 @@ I am currently completing my MSc in AI at the Vrije Universiteit Amsterdam.
 📄 More about my experience on <a href="https://www.linkedin.com/in/mika-shaham">LinkedIn</a>.
 </p>
 
+### 🧠 Tech Stack
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-003B57?style=for-the-badge&logo=database&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Data Analysis](https://img.shields.io/badge/Data%20Analysis-4CAF50?style=for-the-badge&logo=chartbar&logoColor=white)
+![Forecasting](https://img.shields.io/badge/Forecasting-009688?style=for-the-badge&logo=google-analytics&logoColor=white)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![Project Management](https://img.shields.io/badge/Project%20Management-7952B3?style=for-the-badge&logo=notion&logoColor=white)
+![Research](https://img.shields.io/badge/Research-3C3C3D?style=for-the-badge&logo=readthedocs&logoColor=white)
