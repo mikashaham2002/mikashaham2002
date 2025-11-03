@@ -7,7 +7,7 @@ I am currently completing my MSc in AI at the Vrije Universiteit Amsterdam.
 
 <h2 align="center">👨🏻‍💻 About Me</h2>
 
-<p align="center">
+<p>
 💡 I’m an MSc Artificial Intelligence student interested in diverse AI applications — from <b>LLMs</b> to <b>robotics</b>.<br>
 💻 Currently taking classes in <b>Multi-Agent Systems</b> and <b>Symbolic AI</b>.<br>
 🎓 Graduated from the <b>University of Amsterdam (UvA)</b> with a <b>BSc in Computational Social Science</b> in 2025.<br>
